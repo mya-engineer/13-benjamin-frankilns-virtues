@@ -15,4 +15,22 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
 
-export default () => firebase
+// database methods
+const database = firebase.database()
+
+const getPath = (path = undefined) => {
+  database
+    .ref(path)
+    .get()
+    .then(snapshot => (snapshot.exists() ? snapshot.val() : null))
+    .catch(error => {
+      console.error(error)
+    })
+}
+
+// init check
+if (!!!getPath()) {
+  console.log('Firebase Database is empty, initialize...')
+}
+
+export default () => ({ getPath })
