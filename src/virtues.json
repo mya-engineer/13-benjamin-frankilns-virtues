@@ -1,0 +1,136 @@
+{
+  "RU": [
+    {
+      "id": 1,
+      "virtueName": "Воздержание",
+      "virtueDesc": "Есть не до пресыщения, пить не до отвала."
+    },
+    {
+      "id": 2,
+      "virtueName": "Молчание",
+      "virtueDesc": "Говорить только то, что может принести пользу мне или другому; избегать пустых разговоров."
+    },
+    {
+      "id": 3,
+      "virtueName": "Порядок",
+      "virtueDesc": "Держать все свои вещи на их местах; для каждого занятия иметь свое время."
+    },
+    {
+      "id": 4,
+      "virtueName": "Решительность",
+      "virtueDesc": "Решаться выполнять то, что должно сделать; неукоснительно выполнять то, что решено."
+    },
+    {
+      "id": 5,
+      "virtueName": "Бережливость",
+      "virtueDesc": "Тратить деньги только на то, что приносит благо мне или другим, то есть ничего не расточать."
+    },
+    {
+      "id": 6,
+      "virtueName": "Трудолюбие",
+      "virtueDesc": "Не терять времени попусту; быть всегда занятым чем-либо полезным; отказываться от всех ненужных действий."
+    },
+    {
+      "id": 7,
+      "virtueName": "Искренность",
+      "virtueDesc": "Не причинять вреда обманом, иметь чистые и справедливые мысли; в разговоре также придерживаться этого правила."
+    },
+    {
+      "id": 8,
+      "virtueName": "Справедливость",
+      "virtueDesc": "Не причинять никому вреда; не совершать несправедливостей и не опускать добрых дел, которые входят в число твоих обязанностей."
+    },
+    {
+      "id": 9,
+      "virtueName": "Умеренность",
+      "virtueDesc": "Избегать крайностей; сдерживать, насколько ты считаешь это уместным, чувство обиды от несправедливостей."
+    },
+    {
+      "id": 10,
+      "virtueName": "Спокойствие",
+      "virtueDesc": "Не волноваться по пустякам и по поводу обычных или неизбежных случаев."
+    },
+    {
+      "id": 11,
+      "virtueName": "Чистота",
+      "virtueDesc": "Не допускать телесной нечистоты; соблюдать опрятность в одежде и в жилище."
+    },
+    {
+      "id": 12,
+      "virtueName": "Целомудрие",
+      "virtueDesc": "Редко вступать в половые отношения и только ради здоровья или оставления потомства; никогда не доводить до тупости, ослабления или нарушения собственного или чужого мира или репутации."
+    },
+    {
+      "id": 13,
+      "virtueName": "Скромность",
+      "virtueDesc": "Подражать Иисусу и Сократу."
+    }
+  ],
+  "EN": [
+    {
+      "id": 1,
+      "virtueName": "Temperance",
+      "virtueDesc": "Eat not to Dulness. Drink not to Elevation."
+    },
+    {
+      "id": 2,
+      "virtueName": "Silence",
+      "virtueDesc": "Speak not but what may benefit others or your self. Avoid trifling Conversation."
+    },
+    {
+      "id": 3,
+      "virtueName": "Order",
+      "virtueDesc": "Let all your Things have their Places. Let each part of your Business have its Time."
+    },
+    {
+      "id": 4,
+      "virtueName": "Resolurion",
+      "virtueDesc": "Resolve to perform what you ought. Perform without fail what you resolve."
+    },
+    {
+      "id": 5,
+      "virtueName": "Frugality",
+      "virtueDesc": "Make no Expense but to do good to others or yourself; i.e. Waste nothing."
+    },
+    {
+      "id": 6,
+      "virtueName": "Industry",
+      "virtueDesc": "Lose no Time. Be always employ'd in something useful. Cut off all unnecessary actions."
+    },
+    {
+      "id": 7,
+      "virtueName": "Sincerety",
+      "virtueDesc": "Use no hurtful Deceit. Think innocently and justly; and, if you speak, speak accordingly."
+    },
+    {
+      "id": 8,
+      "virtueName": "Justice",
+      "virtueDesc": "Wrong none, by doing Injuries or omitting the Benefits that are your Duty."
+    },
+    {
+      "id": 9,
+      "virtueName": "Tranquility",
+      "virtueDesc": "Be not disturbed at Trifles, or at Accidents common or unavoidable."
+    },
+    {
+      "id": 10,
+      "virtueName": "Moderation",
+      "virtueDesc": "Avoid Extremes. Forbear resenting Injuries so much as you think they deserve."
+    },
+    {
+      "id": 11,
+      "virtueName": "Cleanliness",
+      "virtueDesc": "Tolerate no Uncleanliness in Body, Clothes, or Habitation."
+    },
+    {
+      "id": 12,
+      "virtueName": "Chastity",
+      "virtueDesc": "Rarely use Venery but for Health or Offspring; Never to Dulness, Weakness, or the Injury of your own or another's Peace or Reputation."
+    },
+    {
+      "id": 13,
+      "virtueName": "Humility",
+      "virtueDesc": "Imitate Jesus and Socrates."
+    }
+  ]
+}

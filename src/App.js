@@ -5,25 +5,11 @@ import useFirebase from './hooks/useFirebase'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const firebase = useFirebase()
-  const database = firebase.database()
+  const { getPath } = useFirebase()
 
   const [week, setWeek] = useState(0)
 
-  useEffect(() => {
-    database
-      .ref()
-      .child('week')
-      .get()
-      .then(snapshot =>
-        snapshot.exists()
-          ? setWeek(snapshot.val())
-          : console.log('No data available')
-      )
-      .catch(error => {
-        console.error(error)
-      })
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <div>
