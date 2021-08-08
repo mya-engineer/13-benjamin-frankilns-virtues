@@ -1,6 +1,6 @@
 import { Container, Navbar } from 'react-bootstrap'
 
-export default ({ week }) => (
+const NavBar = ({ week }) => (
   <Navbar bg='dark' variant='dark'>
     <Container fluid>
       <Navbar.Brand>13-Benjamin-Franklin's-Virtues</Navbar.Brand>
@@ -8,3 +8,5 @@ export default ({ week }) => (
     </Container>
   </Navbar>
 )
+
+export default NavBar

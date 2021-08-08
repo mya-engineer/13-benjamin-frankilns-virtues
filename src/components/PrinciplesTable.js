@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap'
 
-export default () => (
+const PrinciplesTable = () => (
   <Table bordered hover size={'xlg'}>
     <thead>
       <tr>
@@ -31,3 +31,5 @@ export default () => (
     </tbody>
   </Table>
 )
+
+export default PrinciplesTable
