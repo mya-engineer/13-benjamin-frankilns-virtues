@@ -1,23 +1,18 @@
+import { Main } from './pages/Main'
 import { Container } from 'react-bootstrap'
 import Navbar from './components/Navbar'
-import Table from './components/PrinciplesTable'
-import useFirebase from './hooks/useFirebase'
-import { useEffect, useState } from 'react'
+import { FirebaseState } from './context/FirebaseState'
 
 function App() {
-  const { getPath } = useFirebase()
-
-  const [week, setWeek] = useState(0)
-
-  useEffect(() => {}, [])
-
   return (
-    <div>
-      <Navbar week={week} />
-      <Container fluid>
-        <Table />
-      </Container>
-    </div>
+    <FirebaseState>
+      <div>
+        <Navbar week={0} />
+        <Container fluid>
+          <Main />
+        </Container>
+      </div>
+    </FirebaseState>
   )
 }
 
