@@ -1,33 +1,34 @@
 import { Table } from 'react-bootstrap'
 
-const PrinciplesTable = () => (
+const PrinciplesTable = ({ virtues }) => (
   <Table bordered hover size={'xlg'}>
     <thead>
       <tr>
-        <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
+        <th>Virtue</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td colSpan='2'>Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {virtues.map(item => (
+        <tr key={item.id}>
+          <td>
+            {item.id}. {item.virtueName}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      ))}
     </tbody>
   </Table>
 )
