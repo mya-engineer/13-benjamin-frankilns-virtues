@@ -24,7 +24,7 @@ const database = firebase.database()
 export const FirebaseState = ({ children }) => {
   const [week, setWeek] = useState(0)
   const [lang, setLang] = useState('EN')
-  const [virtues, setVirtues] = useState([])
+  const [virtues, setVirtues] = useState(undefined)
 
   const state = {
     week,
@@ -54,6 +54,8 @@ export const FirebaseState = ({ children }) => {
 
   const writeData = async (path = undefined, data) =>
     await database.ref(path).set(data)
+
+  console.log('hello')
 
   return (
     <FirebaseContext.Provider value={{ fetchData, state }}>

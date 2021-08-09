@@ -1,6 +1,7 @@
 import Table from '../components/PrinciplesTable'
 import { useEffect, useContext } from 'react'
 import { FirebaseContext } from '../context/FirebaseContext'
+import { Loader } from '../components/Loader'
 
 export const Main = () => {
   const { state, fetchData } = useContext(FirebaseContext)
@@ -8,7 +9,6 @@ export const Main = () => {
   useEffect(() => {
     fetchData()
   }, [])
-  console.log(state.virtues)
 
-  return <Table />
+  return state.virtues ? <Table virtues={state.virtues} /> : <Loader />
 }
