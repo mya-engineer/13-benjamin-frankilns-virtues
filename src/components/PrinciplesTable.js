@@ -1,8 +1,13 @@
-import { Table } from 'react-bootstrap'
+import { Table, Tooltip, OverlayTrigger } from 'react-bootstrap'
+import { QuestionCircleFill } from 'react-bootstrap-icons'
 
 const PrinciplesTable = ({ virtues }) => (
-  <Table bordered hover size={'xlg'}>
-    <thead>
+  <Table
+    bordered
+    hover
+    className='shadow my-3'
+    style={{ tableLayout: 'fixed' }}>
+    <thead className='user-select-none'>
       <tr>
         <th>Virtue</th>
         <th>Mon</th>
@@ -17,8 +22,16 @@ const PrinciplesTable = ({ virtues }) => (
     <tbody>
       {virtues.map(item => (
         <tr key={item.id}>
-          <td>
-            {item.id}. {item.virtueName}
+          <td className='d-flex align-items-center justify-content-between'>
+            <span>
+              {item.id}. {item.virtueName}
+            </span>
+            <OverlayTrigger
+              placement={'auto'}
+              overlay={<Tooltip>{item.virtueDesc}</Tooltip>}
+              key={`tooltip-${item.id}`}>
+              <QuestionCircleFill style={{ cursor: 'help' }} />
+            </OverlayTrigger>
           </td>
           <td></td>
           <td></td>

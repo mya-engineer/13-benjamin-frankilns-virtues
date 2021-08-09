@@ -1,0 +1,7 @@
+table td:not(:first-child) {
+  cursor: pointer;
+}
+
+table th:first-child {
+  width: 20%;
+}
