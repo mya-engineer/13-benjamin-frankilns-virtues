@@ -31,6 +31,7 @@ export const FirebaseState = ({ children }) => {
     lang,
     virtues,
   }
+
   // easy weeks counting
   Date.prototype.getRealDay = function getRealDay() {
     const dayOfWeek = this.getDay()
