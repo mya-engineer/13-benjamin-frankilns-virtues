@@ -4,10 +4,13 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { FirebaseState } from './context/FirebaseState'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FirebaseState>
+      <App />
+    </FirebaseState>
   </React.StrictMode>,
   document.getElementById('root')
 )
