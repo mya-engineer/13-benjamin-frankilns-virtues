@@ -31,7 +31,8 @@ export const FirebaseState = ({ children }) => {
     lang,
     virtues,
   }
-  // rewrite proto for 7 days then count days after timedelta
+
+  // easy weeks counting
   Date.prototype.getRealDay = function getRealDay() {
     const dayOfWeek = this.getDay()
     return dayOfWeek === 0 ? 7 : dayOfWeek
@@ -48,10 +49,23 @@ export const FirebaseState = ({ children }) => {
           console.log('Firebase Database is empty, initialize...')
           writeData('date', +new Date())
           writeData('virtues', Virtues)
+
           setVirtues(Virtues[lang])
+
           setWeek(1)
         } else {
           setVirtues(response.virtues[lang])
+
+          if (!week) {
+            const startDate = new Date(response.date)
+            const todayDate = +new Date()
+
+            const timedeltaDays = Math.floor(
+              (todayDate - startDate) / (1000 * 3600 * 24)
+            )
+
+            setWeek(Math.ceil((startDate.getRealDay() + timedeltaDays) / 7))
+          }
         }
       })
       .catch(error => {
@@ -60,8 +74,6 @@ export const FirebaseState = ({ children }) => {
 
   const writeData = async (path = undefined, data) =>
     await database.ref(path).set(data)
-
-  console.log('hello')
 
   return (
     <FirebaseContext.Provider value={{ fetchData, state }}>
