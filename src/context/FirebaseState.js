@@ -31,6 +31,11 @@ export const FirebaseState = ({ children }) => {
     lang,
     virtues,
   }
+  // rewrite proto for 7 days then count days after timedelta
+  Date.prototype.getRealDay = function getRealDay() {
+    const dayOfWeek = this.getDay()
+    return dayOfWeek === 0 ? 7 : dayOfWeek
+  }
 
   const fetchData = () =>
     database
@@ -44,6 +49,7 @@ export const FirebaseState = ({ children }) => {
           writeData('date', +new Date())
           writeData('virtues', Virtues)
           setVirtues(Virtues[lang])
+          setWeek(1)
         } else {
           setVirtues(response.virtues[lang])
         }
