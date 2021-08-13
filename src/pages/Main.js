@@ -8,7 +8,11 @@ export const Main = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [state.lang])
 
-  return state.virtues ? <Table virtues={state.virtues} /> : <Loader />
+  return !state.loading ? (
+    <Table virtues={state.virtues} lang={state.lang} />
+  ) : (
+    <Loader />
+  )
 }

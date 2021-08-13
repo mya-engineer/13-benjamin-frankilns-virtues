@@ -25,11 +25,13 @@ export const FirebaseState = ({ children }) => {
   const [week, setWeek] = useState(0)
   const [lang, setLang] = useState('EN')
   const [virtues, setVirtues] = useState(undefined)
+  const [loading, setLoading] = useState(true)
 
   const state = {
     week,
     lang,
     virtues,
+    loading,
   }
 
   // easy weeks counting
@@ -38,7 +40,15 @@ export const FirebaseState = ({ children }) => {
     return dayOfWeek === 0 ? 7 : dayOfWeek
   }
 
-  const fetchData = () =>
+  String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1)
+  }
+
+  const fetchData = () => {
+    if (!loading) {
+      setLoading(true)
+    }
+
     database
       .ref()
       .get()
@@ -67,16 +77,18 @@ export const FirebaseState = ({ children }) => {
             setWeek(Math.ceil((startDate.getRealDay() + timedeltaDays) / 7))
           }
         }
+        setLoading(false)
       })
       .catch(error => {
         console.error(error)
       })
+  }
 
   const writeData = async (path = undefined, data) =>
     await database.ref(path).set(data)
 
   return (
-    <FirebaseContext.Provider value={{ fetchData, state }}>
+    <FirebaseContext.Provider value={{ fetchData, state, setLang }}>
       {children}
     </FirebaseContext.Provider>
   )

@@ -1,7 +1,7 @@
 import { Table, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { QuestionCircleFill } from 'react-bootstrap-icons'
 
-const PrinciplesTable = ({ virtues }) => (
+const PrinciplesTable = ({ virtues, lang }) => (
   <Table
     bordered
     hover
@@ -9,14 +9,29 @@ const PrinciplesTable = ({ virtues }) => (
     style={{ tableLayout: 'fixed' }}>
     <thead className='user-select-none'>
       <tr>
-        <th>Virtue</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-        <th>Sun</th>
+        {lang === 'EN' ? (
+          <>
+            <th>Virtue</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+          </>
+        ) : (
+          <>
+            <th>Добродетель</th>
+            <th>Пон</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+            <th>Вс</th>
+          </>
+        )}
       </tr>
     </thead>
     <tbody>
