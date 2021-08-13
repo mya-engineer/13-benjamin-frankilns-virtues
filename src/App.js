@@ -5,11 +5,18 @@ import { useContext } from 'react'
 import { FirebaseContext } from './context/FirebaseContext'
 
 function App() {
-  const { state } = useContext(FirebaseContext)
+  const { state, setLang } = useContext(FirebaseContext)
+
+  const changeLangHandler = () => setLang(state.lang === 'EN' ? 'RU' : 'EN')
 
   return (
     <>
-      <Navbar week={state.week} />
+      <Navbar
+        week={state.week}
+        lang={state.lang}
+        changeLangHandler={changeLangHandler}
+        loading={state.loading}
+      />
       <Container fluid>
         <Main />
       </Container>
