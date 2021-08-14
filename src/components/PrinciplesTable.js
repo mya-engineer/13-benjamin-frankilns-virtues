@@ -1,5 +1,6 @@
 import { Table, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { QuestionCircleFill } from 'react-bootstrap-icons'
+import { ClickableCell } from './ClickableCell'
 
 const PrinciplesTable = ({ virtues, lang }) => (
   <Table
@@ -48,13 +49,13 @@ const PrinciplesTable = ({ virtues, lang }) => (
               <QuestionCircleFill style={{ cursor: 'help' }} />
             </OverlayTrigger>
           </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <ClickableCell />
+          <ClickableCell />
+          <ClickableCell />
+          <ClickableCell />
+          <ClickableCell />
+          <ClickableCell />
+          <ClickableCell />
         </tr>
       ))}
     </tbody>
