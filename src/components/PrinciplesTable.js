@@ -54,22 +54,26 @@ const PrinciplesTable = ({ virtues, lang, history, week, handleHistory }) => {
         </tr>
       </thead>
       <tbody>
-        {virtues.map(item => (
-          <tr key={item.id}>
-            <td className='d-flex align-items-center justify-content-between'>
-              <span>
-                {item.id}. {item.virtueName}
-              </span>
-              <OverlayTrigger
-                placement={'auto'}
-                overlay={<Tooltip>{item.virtueDesc}</Tooltip>}
-                key={`tooltip-${item.id}`}>
-                <QuestionCircleFill style={{ cursor: 'help' }} />
-              </OverlayTrigger>
-            </td>
-            {buildTds(item.id)}
-          </tr>
-        ))}
+        {virtues.map((item, index) => {
+          if (index + 1 <= week || week >= virtues.length) {
+            return (
+              <tr key={item.id}>
+                <td className='d-flex align-items-center justify-content-between'>
+                  <span>
+                    {item.id}. {item.virtueName}
+                  </span>
+                  <OverlayTrigger
+                    placement={'auto'}
+                    overlay={<Tooltip>{item.virtueDesc}</Tooltip>}
+                    key={`tooltip-${item.id}`}>
+                    <QuestionCircleFill style={{ cursor: 'help' }} />
+                  </OverlayTrigger>
+                </td>
+                {buildTds(item.id)}
+              </tr>
+            )
+          }
+        })}
       </tbody>
     </Table>
   )
