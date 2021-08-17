@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+_"I love statistics and days in a row on git" commit_
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
