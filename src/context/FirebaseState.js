@@ -47,6 +47,7 @@ export const FirebaseState = ({ children }) => {
   }
 
   const fetchData = () => {
+    console.log('gruzhu')
     if (!loading) {
       setLoading(true)
     }

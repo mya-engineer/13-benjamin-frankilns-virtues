@@ -6,10 +6,6 @@ import { Loader } from '../components/Loader'
 export const Main = () => {
   const { state, fetchData, handleHistory } = useContext(FirebaseContext)
 
-  useEffect(() => {
-    fetchData()
-  }, [state.lang])
-
   return !state.loading ? (
     <Table
       virtues={state.virtues}
