@@ -2,7 +2,7 @@ import { Main } from './pages/Main'
 import { About } from './pages/About'
 import { Container } from 'react-bootstrap'
 import Navbar from './components/Navbar'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { FirebaseContext } from './context/FirebaseContext'
 import {
   Switch,
@@ -12,9 +12,13 @@ import {
 } from 'react-router-dom'
 
 function App() {
-  const { state, setLang } = useContext(FirebaseContext)
+  const { state, setLang, fetchData } = useContext(FirebaseContext)
 
   const changeLangHandler = () => setLang(state.lang === 'EN' ? 'RU' : 'EN')
+
+  useEffect(() => {
+    fetchData()
+  }, [state.lang])
 
   return (
     <Router>
