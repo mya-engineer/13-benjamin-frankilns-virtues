@@ -5,3 +5,12 @@ table td:not(:first-child) {
 table th:first-child {
   width: 20%;
 }
+
+#main-page {
+  margin-left: 64px;
+  transition: margin-left 0.2s;
+}
+
+#main-page.active {
+  margin-left: 240px;
+}
