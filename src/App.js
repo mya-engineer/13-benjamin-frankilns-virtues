@@ -4,19 +4,14 @@ import { Container } from 'react-bootstrap'
 import Navbar from './components/Navbar'
 import { useContext, useEffect } from 'react'
 import { FirebaseContext } from './context/FirebaseContext'
-import SideNav, {
-  Toggle,
-  Nav,
-  NavItem,
-  NavIcon,
-  NavText,
-} from '@trendmicro/react-sidenav'
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import {
   Switch,
   Route,
   Redirect,
   BrowserRouter as Router,
 } from 'react-router-dom'
+import { HouseDoor, QuestionCircle } from 'react-bootstrap-icons'
 
 function App() {
   const { state, setLang, fetchData } = useContext(FirebaseContext)
@@ -27,6 +22,7 @@ function App() {
     fetchData()
   }, [state.lang])
   console.log('dsds')
+
   return (
     <Router>
       <SideNav
@@ -35,29 +31,29 @@ function App() {
         }
         onSelect={selected => {
           // Add your code here
-        }}>
+        }}
+        id='sidenav'>
         <SideNav.Toggle />
         <SideNav.Nav defaultSelected='home'>
           <NavItem eventKey='home'>
             <NavIcon>
-              <i className='fa fa-fw fa-home' style={{ fontSize: '1.75em' }} />
+              <HouseDoor size={20} />
             </NavIcon>
-            <NavText>Home</NavText>
+            {state.lang === 'EN' ? (
+              <NavText>Home</NavText>
+            ) : (
+              <NavText>Домашняя</NavText>
+            )}
           </NavItem>
-          <NavItem eventKey='charts'>
+          <NavItem eventKey='about'>
             <NavIcon>
-              <i
-                className='fa fa-fw fa-line-chart'
-                style={{ fontSize: '1.75em' }}
-              />
+              <QuestionCircle size={20} />
             </NavIcon>
-            <NavText>Charts</NavText>
-            <NavItem eventKey='charts/linechart'>
-              <NavText>Line Chart</NavText>
-            </NavItem>
-            <NavItem eventKey='charts/barchart'>
-              <NavText>Bar Chart</NavText>
-            </NavItem>
+            {state.lang === 'EN' ? (
+              <NavText>About</NavText>
+            ) : (
+              <NavText>О приложении</NavText>
+            )}
           </NavItem>
         </SideNav.Nav>
       </SideNav>

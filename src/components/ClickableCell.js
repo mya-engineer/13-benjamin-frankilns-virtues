@@ -1,4 +1,4 @@
-import { EmojiFrownFill } from 'react-bootstrap-icons'
+import { EmojiSmileFill } from 'react-bootstrap-icons'
 
 export const ClickableCell = ({
   dayOfWeek,
@@ -10,7 +10,7 @@ export const ClickableCell = ({
 
   return (
     <td onClick={cellClickHandler} style={{ textAlign: 'center' }}>
-      {violated ? <EmojiFrownFill size={20} className='ml-auto' /> : <span />}
+      {violated ? <EmojiSmileFill size={20} className='ml-auto' /> : <span />}
     </td>
   )
 }
