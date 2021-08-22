@@ -14,3 +14,7 @@ table th:first-child {
 #main-page.active {
   margin-left: 240px;
 }
+
+#sidenav {
+  background-color: #212529;
+}
