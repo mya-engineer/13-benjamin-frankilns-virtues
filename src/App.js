@@ -25,54 +25,64 @@ function App() {
 
   return (
     <Router>
-      <SideNav
-        onToggle={() =>
-          document.querySelector('#main-page').classList.toggle('active')
-        }
-        onSelect={selected => {
-          // Add your code here
-        }}
-        id='sidenav'>
-        <SideNav.Toggle />
-        <SideNav.Nav defaultSelected='home'>
-          <NavItem eventKey='home'>
-            <NavIcon>
-              <HouseDoor size={20} />
-            </NavIcon>
-            {state.lang === 'EN' ? (
-              <NavText>Home</NavText>
-            ) : (
-              <NavText>Домашняя</NavText>
-            )}
-          </NavItem>
-          <NavItem eventKey='about'>
-            <NavIcon>
-              <QuestionCircle size={20} />
-            </NavIcon>
-            {state.lang === 'EN' ? (
-              <NavText>About</NavText>
-            ) : (
-              <NavText>О приложении</NavText>
-            )}
-          </NavItem>
-        </SideNav.Nav>
-      </SideNav>
-
-      <div id='main-page'>
-        <Navbar
-          week={state.week}
-          lang={state.lang}
-          changeLangHandler={changeLangHandler}
-          loading={state.loading}
-        />
-        <Container fluid>
-          <Switch>
-            <Route path={'/'} exact component={Main} />
-            <Route path={'/about'} component={About} />
-            <Redirect to={'/'} />
-          </Switch>
-        </Container>
-      </div>
+      <Route
+        render={routeProps => (
+          <>
+            <SideNav
+              onToggle={() =>
+                document.querySelector('#main-page').classList.toggle('active')
+              }
+              onSelect={selected => {
+                console.log(routeProps)
+                const to = '/' + selected
+                // const to = selected === 'home' ? '/' : '/' + selected
+                if (routeProps.location.pathname !== to) {
+                  routeProps.history.push(to)
+                }
+              }}
+              id='sidenav'>
+              <SideNav.Toggle />
+              <SideNav.Nav defaultSelected='home'>
+                <NavItem eventKey='home'>
+                  <NavIcon>
+                    <HouseDoor size={20} />
+                  </NavIcon>
+                  {state.lang === 'EN' ? (
+                    <NavText>Home</NavText>
+                  ) : (
+                    <NavText>Домашняя</NavText>
+                  )}
+                </NavItem>
+                <NavItem eventKey='about'>
+                  <NavIcon>
+                    <QuestionCircle size={20} />
+                  </NavIcon>
+                  {state.lang === 'EN' ? (
+                    <NavText>About</NavText>
+                  ) : (
+                    <NavText>О приложении</NavText>
+                  )}
+                </NavItem>
+              </SideNav.Nav>
+            </SideNav>
+            <div id='main-page'>
+              <Navbar
+                week={state.week}
+                lang={state.lang}
+                changeLangHandler={changeLangHandler}
+                loading={state.loading}
+              />
+              <Container fluid>
+                <Switch>
+                  <Route path={'/'} exact component={Main} />
+                  <Route path={'/about'} component={About} />
+                  <Redirect to={'/'} />
+                </Switch>
+              </Container>
+            </div>
+          </>
+        )}
+      />
     </Router>
   )
 }
