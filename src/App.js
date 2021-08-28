@@ -33,16 +33,19 @@ function App() {
                 document.querySelector('#main-page').classList.toggle('active')
               }
               onSelect={selected => {
-                console.log(routeProps)
-                const to = '/' + selected
-                // const to = selected === 'home' ? '/' : '/' + selected
+                const to = selected === 'home' ? '/' : '/' + selected
                 if (routeProps.location.pathname !== to) {
                   routeProps.history.push(to)
                 }
               }}
               id='sidenav'>
               <SideNav.Toggle />
-              <SideNav.Nav defaultSelected='home'>
+              <SideNav.Nav
+                defaultSelected={
+                  !routeProps.history.location.pathname.replace('/', '')
+                    ? 'home'
+                    : routeProps.history.location.pathname.replace('/', '')
+                }>
                 <NavItem eventKey='home'>
                   <NavIcon>
                     <HouseDoor size={20} />
@@ -74,8 +77,8 @@ function App() {
               />
               <Container fluid>
                 <Switch>
-                  <Route path={'/'} exact component={Main} />
                   <Route path={'/about'} component={About} />
+                  <Route path={'/'} exact component={Main} />
                   <Redirect to={'/'} />
                 </Switch>
               </Container>
