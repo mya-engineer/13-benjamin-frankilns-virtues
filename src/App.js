@@ -14,14 +14,14 @@ import {
 import { HouseDoor, QuestionCircle } from 'react-bootstrap-icons'
 
 function App() {
-  const { state, setLang, fetchData } = useContext(FirebaseContext)
+  const { state, changeLang, fetchData } = useContext(FirebaseContext)
 
-  const changeLangHandler = () => setLang(state.lang === 'EN' ? 'RU' : 'EN')
+  const changeLangHandler = () => changeLang()
 
   useEffect(() => {
     fetchData()
-  }, [state.lang])
-  console.log('dsds')
+  }, [])
+  console.log(state)
 
   return (
     <Router>

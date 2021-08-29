@@ -1,8 +1,15 @@
-import { useState } from 'react'
+import { useState, useReducer } from 'react'
 import { FirebaseContext } from './FirebaseContext'
 import firebase from 'firebase/app'
 import 'firebase/database'
 import Virtues from '../virtues.json'
+import { firebaseReducer } from './FirebaseReducer'
+import {
+  SHOW_LOADER,
+  FETCH_DATA,
+  CHANGE_LANG,
+  CLICK_HANDLE,
+} from './types/types'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -22,19 +29,13 @@ if (!firebase.apps.length) {
 const database = firebase.database()
 
 export const FirebaseState = ({ children }) => {
-  const [week, setWeek] = useState(0)
-  const [lang, setLang] = useState('EN')
-  const [virtues, setVirtues] = useState(undefined)
-  const [history, setHistory] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  const state = {
-    week,
-    lang,
-    virtues,
-    loading,
-    history,
-  }
+  const [state, dispatch] = useReducer(firebaseReducer, {
+    week: 0,
+    lang: 'EN',
+    virtues: undefined,
+    history: [],
+    loading: true,
+  })
 
   // easy weeks counting
   Date.prototype.getRealDay = function getRealDay() {
@@ -46,10 +47,10 @@ export const FirebaseState = ({ children }) => {
     return this.charAt(0).toUpperCase() + this.slice(1)
   }
 
-  const fetchData = () => {
+  const fetchData = (changeLang = false) => {
     console.log('gruzhu')
-    if (!loading) {
-      setLoading(true)
+    if (!state.loading) {
+      dispatch({ type: SHOW_LOADER })
     }
 
     database
@@ -66,7 +67,7 @@ export const FirebaseState = ({ children }) => {
           const newHistory = [
             {
               week: 1,
-              virtues: Virtues[lang].map(virtue => ({
+              virtues: Virtues[state.lang].map(virtue => ({
                 virtue: virtue.id,
                 mon: false,
                 tue: false,
@@ -78,16 +79,26 @@ export const FirebaseState = ({ children }) => {
               })),
             },
           ]
-          setHistory(newHistory)
           writeData('history', newHistory)
 
-          setVirtues(Virtues[lang])
-
-          setWeek(1)
+          dispatch({
+            type: FETCH_DATA,
+            payload: {
+              week: 1,
+              virtues: Virtues[state.lang],
+              history: newHistory,
+            },
+          })
         } else {
-          setVirtues(response.virtues[lang])
-
-          if (!week) {
+          if (changeLang) {
+            dispatch({
+              type: CHANGE_LANG,
+              payload: {
+                virtues: response.virtues[state.lang === 'EN' ? 'RU' : 'EN'],
+                lang: state.lang === 'EN' ? 'RU' : 'EN',
+              },
+            })
+          } else {
             const startDate = new Date(response.date)
             const todayDate = +new Date()
 
@@ -98,18 +109,18 @@ export const FirebaseState = ({ children }) => {
             const currentWeek = Math.ceil(
               (startDate.getRealDay() + timedeltaDays) / 7
             )
-            setWeek(currentWeek)
 
             // add week to history
+            let newHistory = response.history
             const isExist = response.history.find(
               item => item.week === currentWeek
             )
             if (!isExist) {
-              const newHistory = [
+              newHistory = [
                 ...response.history,
                 {
                   week: currentWeek,
-                  virtues: Virtues[lang].map(virtue => ({
+                  virtues: Virtues[state.lang].map(virtue => ({
                     virtue: virtue.id,
                     mon: false,
                     tue: false,
@@ -121,14 +132,18 @@ export const FirebaseState = ({ children }) => {
                   })),
                 },
               ]
-              setHistory(newHistory)
               writeData('history', newHistory)
-            } else {
-              setHistory(response.history)
             }
+            dispatch({
+              type: FETCH_DATA,
+              payload: {
+                week: currentWeek,
+                history: newHistory,
+                virtues: response.virtues[state.lang],
+              },
+            })
           }
         }
-        setLoading(false)
       })
       .catch(error => {
         console.error(error)
@@ -139,7 +154,9 @@ export const FirebaseState = ({ children }) => {
     await database.ref(path).set(data)
 
   const handleHistory = async (dayOfWeek, virtueId) => {
-    const currentHistoryWeek = history.find(item => item.week === week)
+    const currentHistoryWeek = state.history.find(
+      item => item.week === state.week
+    )
     const currentHistoryVirtues = currentHistoryWeek.virtues.find(
       virtue => virtue.virtue === virtueId
     )
@@ -155,17 +172,19 @@ export const FirebaseState = ({ children }) => {
         : item
     )
 
-    const newHistory = history.map(item =>
-      item.week === week ? currentHistoryWeek : item
+    const newHistory = state.history.map(item =>
+      item.week === state.week ? currentHistoryWeek : item
     )
 
-    setHistory(newHistory)
+    dispatch({ type: CLICK_HANDLE, payload: { history: newHistory } })
     await writeData('history', newHistory)
   }
 
+  const changeLang = () => fetchData(true)
+
   return (
     <FirebaseContext.Provider
-      value={{ fetchData, state, setLang, handleHistory }}>
+      value={{ fetchData, changeLang, state, handleHistory }}>
       {children}
     </FirebaseContext.Provider>
   )
