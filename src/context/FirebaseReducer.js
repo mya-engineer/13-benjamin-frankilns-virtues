@@ -10,7 +10,7 @@ const handlers = {
   [FETCH_DATA]: (state, { payload }) => ({
     ...state,
     loading: false,
-    week: 1,
+    week: payload.week,
     virtues: payload.virtues,
     history: payload.history,
   }),
