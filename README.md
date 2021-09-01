@@ -2,21 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
-
 ## Contributors
 
 - [mya-engineer](https://github.com/mya-engineer)
-
----
 
 ## License & copyright
 
 © [mya-engineer](https://github.com/mya-engineer)
 
 Licensed under the [MIT License](LICENSE).
-
----
 
 ## Available Scripts
 
