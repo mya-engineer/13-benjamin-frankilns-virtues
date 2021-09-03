@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# 13-Benjamin-Franklins-Virtues
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project dedicates to 13 Benjamin Franklin's virtues which should improve self-discipline and develop personality.
 
 ## Contributors
 
