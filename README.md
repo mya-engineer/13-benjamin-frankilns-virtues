@@ -16,6 +16,9 @@ This project dedicates to 13 Benjamin Franklin's virtues which should improve se
 Check out this amazing [DEMO](https://benjamin-8c601.web.app/)!
 _P.S: Also recommend "About" page_
 
+## FAQ
+- Q: How to switch language? *Answer: Click on language badge at the topside of app*
+
 ## Installation
 
 1. [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) **Node.js** and **npm** (if they aren't installed)
