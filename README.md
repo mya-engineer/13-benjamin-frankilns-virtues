@@ -3,15 +3,30 @@
 This project dedicates to 13 Benjamin Franklin's virtues which should improve self-discipline and develop personality.
 
 ## Installation
-1. Clone this repo
+1. [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) Node.js and npm (if they aren't installed)
+2. *Recommended* Install yarn
+```sh
+npm install --global yarn
+```
+```sh
+yarn --version
+```
+3. Clone this repo
 ```sh
 git clone git@github.com:mya-engineer/13-benjamin-frankilns-virtues.git
 ```
-2. Install packages (node_modules folder will be created)
+4. Enter the directory and install packages (node_modules folder will be created)
+```sh
+cd 13-benjamin-frankilns-virtues/
+```
 ```sh
 yarn install
 ```
-3. create firebase app, dazhe povishe vkinut sozdanie, + nado ubrat warnings
+or
+```sh
+npm install
+```
+5. create firebase app, dazhe povishe vkinut sozdanie, + nado ubrat warnings
 
 ## Contributors
 
