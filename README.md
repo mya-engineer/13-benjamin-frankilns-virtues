@@ -4,18 +4,25 @@ This project dedicates to 13 Benjamin Franklin's virtues which should improve se
 
 ## Installation
 1. [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) Node.js and npm (if they aren't installed)
-2. *Recommended* Install yarn
+2. Install Firebase CLI and login to your Google account
+```sh
+npm install -g firebase-tools
+```
+```sh
+firebase login
+```
+3. Install yarn *(Recommended)*
 ```sh
 npm install --global yarn
 ```
 ```sh
 yarn --version
 ```
-3. Clone this repo
+4. Clone this repo
 ```sh
 git clone git@github.com:mya-engineer/13-benjamin-frankilns-virtues.git
 ```
-4. Enter the directory and install packages (node_modules folder will be created)
+5. Enter the directory and install packages (node_modules folder will be created)
 ```sh
 cd 13-benjamin-frankilns-virtues/
 ```
@@ -26,7 +33,38 @@ or
 ```sh
 npm install
 ```
-5. create firebase app, dazhe povishe vkinut sozdanie, + nado ubrat warnings
+6. Create new Firebase project through [**Firebase Console**](https://console.firebase.google.com/)
+7. Click icon to add Web app (it is on the main blue screen of your project)
+8. Choose name for app an disable **Firebase Hosting**
+9. Copy data by names (without quotes) from ***firebaseConfig*** to .env file in repo's directory. Database url will be inserted later. Create a new app
+10. Go to **Realtime Database** in Firebase Console and create a new database (rules set to default)
+11. Copy database's link from the header to .env file
+12. Go to **Rules** tab of database and past next rules (don't worry about security alert, this database won't store confidential data)
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+13. Build application in repo's directory
+```sh
+yarn build
+```
+or
+```sh
+npm run build
+```
+14. Init Firebase in repo
+```sh
+firebase init
+```
+Choose "Hosting" (spacebar to focus and enter) -> "Use an existing project" -> Choose project created earlier -> Choose "build" as your public direcory -> Configure as a single-page app -> Disable automatic deploys from GitHub -> Don't rewrite index.html
+15. Deploy application!
+```sh
+firebase deploy
+```
 
 ## Contributors
 
