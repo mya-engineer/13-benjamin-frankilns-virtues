@@ -2,16 +2,29 @@
 
 This project dedicates to 13 Benjamin Franklin's virtues which should improve self-discipline and develop personality.
 
+## Features
+- Makes you better! (Check "About" page in demo)
+- Controls your personal growth! (Yeah, you should check "About" page in demo!)
+- Stores your transformation into a better You!
+- Uses Firebase as hosting
+- Russian localization by [ME](https://github.com/mya-engineer)
+- History View of weeks will be added soon...
+
+## Demo
+
+Check out this amazing [DEMO](https://benjamin-8c601.web.app/)!
+*Also recommend "About" page*
+
 ## Installation
-1. [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) Node.js and npm (if they aren't installed)
-2. Install Firebase CLI and login to your Google account
+1. [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) **Node.js** and **npm** (if they aren't installed)
+2. Install **Firebase CLI** and login to your Google account
 ```sh
 npm install -g firebase-tools
 ```
 ```sh
 firebase login
 ```
-3. Install yarn *(Recommended)*
+3. Install *yarn* *(Recommended)*
 ```sh
 npm install --global yarn
 ```
@@ -63,7 +76,7 @@ firebase init
     1. Choose "Hosting" (spacebar to focus and enter) 
     2. "Use an existing project"
     3. Choose project created earlier
-    4. Choose "build" as your public direcory
+    4. Choose "build" as your public directory
     5. Configure as a single-page app
     6. Disable automatic deploys from GitHub
     7. Don't rewrite index.html
