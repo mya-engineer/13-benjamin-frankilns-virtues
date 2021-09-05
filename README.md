@@ -3,15 +3,15 @@
 This project dedicates to 13 Benjamin Franklin's virtues which should improve self-discipline and develop personality.
 
 ## Installation
+1. Clone this repo
 ```sh
-# cloning repo
 git clone git@github.com:mya-engineer/13-benjamin-frankilns-virtues.git
-
-# install packages (node_modules folder will be created)
-yarn install
-
-# create firebase app, dazhe povishe vkinut sozdanie, + nado ubrat warnings
 ```
+2. Install packages (node_modules folder will be created)
+```sh
+yarn install
+```
+3. create firebase app, dazhe povishe vkinut sozdanie, + nado ubrat warnings
 
 ## Contributors
 
