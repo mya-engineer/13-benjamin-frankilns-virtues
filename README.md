@@ -13,7 +13,7 @@ This project dedicates to 13 Benjamin Franklin's virtues which should improve se
 ## Demo
 
 Check out this amazing [DEMO](https://benjamin-8c601.web.app/)!
-*Also recommend "About" page*
+*P.S: Also recommend "About" page*
 
 ## Installation
 1. [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) **Node.js** and **npm** (if they aren't installed)
