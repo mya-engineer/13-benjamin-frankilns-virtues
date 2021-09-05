@@ -73,6 +73,7 @@ const PrinciplesTable = ({ virtues, lang, history, week, handleHistory }) => {
               </tr>
             )
           }
+          return <tr key={item.id}></tr>
         })}
       </tbody>
     </Table>
