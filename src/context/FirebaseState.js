@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react'
+import { useReducer } from 'react'
 import { FirebaseContext } from './FirebaseContext'
 import firebase from 'firebase/app'
 import 'firebase/database'
@@ -38,11 +38,13 @@ export const FirebaseState = ({ children }) => {
   })
 
   // easy weeks counting
+  // eslint-disable-next-line no-extend-native
   Date.prototype.getRealDay = function getRealDay() {
     const dayOfWeek = this.getDay()
     return dayOfWeek === 0 ? 7 : dayOfWeek
   }
 
+  // eslint-disable-next-line no-extend-native
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1)
   }

@@ -1,7 +1,7 @@
 import { Container, Navbar, Badge, Spinner } from 'react-bootstrap'
 
 const NavBar = ({ week, lang, changeLangHandler, loading }) => (
-  <Navbar bg='dark' variant='dark'>
+  <Navbar bg='dark' variant='dark' className='user-select-none'>
     <Container fluid>
       <Navbar.Brand>
         13-Benjamin-Franklin's-Virtues&nbsp;
